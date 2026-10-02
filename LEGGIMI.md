@@ -1,6 +1,6 @@
 # CopyLab
 
-Un laboratorio locale per leggere e annotare il copy, ricostruire le convinzioni e collegare le prove. Versione 1.0.4.
+Un laboratorio locale per leggere e annotare il copy, ricostruire le convinzioni e collegare le prove. Versione 1.0.6.
 
 Scarica sempre l'ultima versione dalla [pagina ufficiale CopyLab](https://github.com/copynerdai/copylab-download). È un regalo sperimentale di Simone Coria per esercitarsi nell'analisi attiva.
 
@@ -10,7 +10,7 @@ Scarica sempre l'ultima versione dalla [pagina ufficiale CopyLab](https://github
 - **Mac Intel:** usa il pacchetto `macOS-Intel`.
 - **Windows 64 bit:** estrai completamente lo ZIP e apri `CopyLab.exe`. Mantieni insieme l'eseguibile e le altre cartelle del pacchetto.
 
-Non servono Node, Python, account o chiavi API. Puoi lavorare senza connessione: i modelli OCR per italiano e inglese sono già inclusi. Internet serve per scaricare l'app e verificare gli aggiornamenti.
+Non servono Node, Python, account o chiavi API. Puoi leggere e annotare i documenti senza connessione. Internet serve per scaricare l'app e verificare gli aggiornamenti.
 
 Su Mac è richiesto macOS 13 o successivo. Per scegliere il pacchetto, apri menu Apple → Informazioni su questo Mac: se compare “Chip Apple”, usa Apple Silicon; se compare un processore Intel, usa Intel. La versione Windows è per sistemi x64.
 
@@ -40,13 +40,25 @@ L'installazione è manuale. Il controllo invia a GitHub soltanto una richiesta d
 
 1. Scegli **Carica un pezzo di copy**, **Parti da un testo**, oppure apri l'esempio incluso. L'esempio è inventato e modificabile.
 2. Puoi caricare Markdown, PDF, Word `.docx`, HTML, testo semplice e progetti `.copylab`. Una cartella HTML o uno ZIP può includere le immagini locali.
-3. Controlla il testo importato. Correggi titoli, ordine e paragrafi; poi scegli **Inizia l'analisi**. L'originale resta conservato e raggiungibile da **Originale**.
+3. Per i PDF, lavora direttamente sulla pagina originale. Per gli altri formati, controlla il testo importato, correggi titoli e paragrafi e scegli **Inizia l'analisi**. Il file sorgente resta raggiungibile da **Originale**.
 4. Seleziona un passaggio e clicca una categoria a sinistra. La selezione resta valida mentre scegli. La scheda dell'annotazione compare a destra; il commento è facoltativo.
 5. Applica altre categorie allo stesso intervallo oppure seleziona passaggi al suo interno. Le attribuzioni possono essere annidate o sovrapporsi parzialmente. Ogni scheda è indipendente ed espandibile.
 
 **Nota libera**, in cima al pannello sinistro, crea un commento sul passaggio selezionato senza assegnargli una funzione del copy. Ha un colore neutro e una scheda espandibile a destra; può sovrapporsi alle altre annotazioni, si salva ed entra nelle esportazioni. Puoi ritrovarla anche nel filtro delle note.
 
 Un clic su una nota richiama il passaggio. Un clic su un tratto con più evidenziazioni apre le note associate. I colori identificano le categorie; le sottolineature mostrano le altre funzioni nello stesso tratto. Il filtro a destra può isolare una categoria, i dubbi o le note da ricollegare.
+
+## Annotare un PDF
+
+La pagina conserva font, colonne, immagini e impaginazione originali. CopyLab non ricostruisce più il PDF nell’editor di testo.
+
+- **Seleziona testo:** seleziona una frase o una sua parte, poi scegli una categoria o **Nota libera**. Scrivi il commento nella scheda a destra.
+- **Seleziona area:** trascina un riquadro su un’immagine o un passaggio. Funziona anche sulle scansioni senza testo selezionabile, senza attendere una trascrizione OCR.
+- Puoi aggiungere più categorie sullo stesso passaggio, cambiare zoom e richiamare la pagina cliccando la citazione della nota. **Adatta alla larghezza** adatta la pagina allo spazio disponibile.
+- I commenti rimangono accanto al documento; il contenuto del PDF resta intatto. HTML e PDF esportati includono le pagine con le evidenziazioni e l’elenco delle note; Markdown riporta note e numeri di pagina.
+- Le vecchie analisi PDF si aprono sull’originale. **Testo precedente** conserva il testo già importato o modificato e le sue annotazioni. Cliccare una vecchia citazione riapre quel testo; le nuove note possono essere aggiunte direttamente sul PDF. Nessuna conversione automatica delle vecchie ancore.
+
+I nuovi progetti PDF usano il formato `.copylab` versione 2: per riaprirli serve CopyLab 1.0.5 o successivo. La nuova app apre anche tutti i progetti versione 1.
 
 ## Gli 11 tipi di nota
 
@@ -58,7 +70,7 @@ I progetti precedenti conservano le annotazioni già create, inclusi commenti, c
 
 ## Scrivere e modificare
 
-Il documento è modificabile: clicca nel punto desiderato e scrivi. **Appunto nel testo** inserisce uno spazio distinto per osservazioni libere, senza richiedere una selezione. Se un testo è selezionato, l'appunto viene inserito dopo quel passaggio e non lo cancella.
+Nei documenti di testo (Markdown, Word, HTML e testo semplice), il contenuto è modificabile: clicca nel punto desiderato e scrivi. **Appunto nel testo** inserisce uno spazio distinto per osservazioni libere, senza richiedere una selezione. Se un testo è selezionato, l'appunto viene inserito dopo quel passaggio e non lo cancella.
 
 La barra permette di applicare grassetto, corsivo, headline, subheadline ed elenchi. **Annulla** e **Ripeti** riguardano le modifiche di questa sessione. Anche le annotazioni e le loro note possono essere annullate. Nelle caselle delle note, le scorciatoie di modifica del sistema riguardano il campo su cui stai scrivendo; i pulsanti nella barra del documento agiscono sulla cronologia del progetto.
 
@@ -87,13 +99,18 @@ Conserva copie dei progetti esportati. Il salvataggio automatico comprende una c
 
 Archivio dell'app desktop: `~/Library/Application Support/CopyLab/analisi` su Mac e `%APPDATA%\CopyLab\analisi` su Windows. La cartella contiene i progetti correnti e le copie precedenti `.bak`. Non modificarla mentre l'app è aperta.
 
+## Eliminare un pezzo
+
+In basso a destra su ogni scheda dell’archivio trovi il cestino con **Elimina**. Il pulsante è disponibile anche nelle analisi archiviate. Conferma il titolo del pezzo da rimuovere, oppure premi **Annulla** o Esc.
+
+L’app desktop sposta nel cestino del computer una cartella `CopyLab-…` contenente il progetto e la sua copia di recupero. Il file sorgente esterno, per esempio il PDF sul Desktop, resta al suo posto. Per recuperare l’analisi, recupera la cartella dal cestino e importa il file `.copylab` che contiene. Se lo spostamento fallisce, l’app mostra l’errore e lascia l’analisi disponibile.
+
 ## Limiti della prima versione
 
 - Il supporto Word riguarda `.docx`. I vecchi `.doc`, i file `.pages` e `.odt` vanno esportati in un formato supportato.
 - HTML significa file salvati, non acquisizione da un indirizzo web. Script, form e risorse remote non vengono eseguiti o scaricati. Le immagini devono essere incorporate oppure incluse nella cartella o nello ZIP.
-- PDF: massimo 100 pagine; file o insieme di risorse massimo 80 MB. La struttura e le colonne possono richiedere correzioni. I PDF protetti da password vanno prima forniti in una versione leggibile autorizzata.
-- L'OCR italiano/inglese è locale e può sbagliare, soprattutto su scansioni degradate. Controlla sempre il risultato sull'originale. È pensato per testo stampato, non come riconoscitore di manoscritti.
-- Si annota il testo importato e si possono selezionare immagini intere. Non si disegnano ancora rettangoli sulla pagina PDF.
+- PDF: massimo 100 pagine; file o insieme di risorse massimo 80 MB. L’impaginazione viene mantenuta. Le selezioni di testo dipendono dal testo incorporato nel PDF; se è assente o difettoso, usa **Seleziona area**. I PDF protetti da password vanno prima forniti in una versione leggibile autorizzata.
+- Ogni annotazione PDF riguarda una pagina. Per passaggi su pagine diverse, crea una nota per pagina. Le aree delle scansioni si annotano visivamente; non viene generata una trascrizione automatica.
 - Non sono incluse analisi AI, collaborazione online o sincronizzazione cloud.
 
 La cartella del programma può essere spostata senza spostare l'archivio delle analisi. Per trasferire il lavoro su un altro computer, usa i file `.copylab`.

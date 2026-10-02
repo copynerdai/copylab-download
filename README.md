@@ -42,6 +42,17 @@ Il controllo degli aggiornamenti contatta GitHub senza inviare documenti o note.
 
 ## Cosa puoi caricare
 
-Markdown, PDF anche scansionati, Word `.docx`, pagine HTML salvate, testo semplice e progetti `.copylab`. Puoi selezionare una frase o sue parti, applicare più funzioni sovrapposte, scrivere commenti e inserire testo liberamente.
+Markdown, PDF anche scansionati, Word `.docx`, pagine HTML salvate, testo semplice e progetti `.copylab`.
+
+I **PDF mantengono l’impaginazione originale**, con font, colonne e immagini. Seleziona il testo oppure un’area della pagina e aggiungi categorie o note a lato. Nei documenti di testo puoi anche scrivere e inserire appunti liberamente.
+
+## Novità della 1.0.6
+
+- PDF originali annotabili, con evidenziazioni che seguono il passaggio anche cambiando zoom.
+- Selezione di aree per annotare immagini e scansioni.
+- Pagine originali con evidenziazioni nei resoconti HTML e PDF.
+- **Elimina** con icona del cestino su ogni scheda: dopo la conferma, l’analisi va nel cestino del computer. Il file sorgente esterno resta al suo posto.
+
+Le analisi precedenti rimangono disponibili. Nei vecchi progetti PDF, **Testo precedente** conserva il testo già lavorato e le sue note. I nuovi progetti PDF richiedono CopyLab 1.0.5 o successivo: aggiorna l’app prima di aprire un progetto condiviso da chi usa questa versione.
 
 Questa pagina distribuisce il programma e la guida. I sorgenti sono gestiti separatamente.
